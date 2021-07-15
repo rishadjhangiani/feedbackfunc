@@ -1,0 +1,70 @@
+ng-sidebar-container {
+    height: 10;
+}
+
+#menu {
+    height: 15px;
+}
+
+.menuB {
+    border-color: white;
+    
+
+}
+
+.navbar {
+    justify-content: space-between;
+}
+
+span {
+    padding-right: 1rem;
+}
+
+/*.menu {
+    margin-top: 2em;
+    display : block;
+}*/
+
+.menu button {
+    /*margin-bottom: 15px;*/
+    padding: 10px 24px; 
+    cursor: pointer; 
+    width: 100%; 
+    display: block;
+    border-color: transparent;
+    text-align: left;
+    margin-right: 0%;
+}
+
+.menu button:not(:last-child) {
+    border-bottom: none;
+}
+
+.menu button:hover {
+    background-color:rgb(241, 241, 241)
+}
+
+/*.menu button a {
+    display: block;
+    width: 100%; 
+    padding: 10px 24px; 
+    cursor: pointer; 
+    width: 50%; 
+    display: block;
+} */
+
+button {
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color:rgb(243, 235, 235);
+    color: black;
+}
+
+::ng-deep .ng-sidebar {
+    background-color: rgb(241, 241, 241);
+    width: 250px;
+    padding: 2em 3em; 
+    box-shadow: 0 0 2.5em rgba(85, 85, 85, 0.5);
+}

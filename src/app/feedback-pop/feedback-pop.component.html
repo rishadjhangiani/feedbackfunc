@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Submit Feedback</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button> 
+</div>
+
+  <div class="modal-body">
+    <form>
+      <div class="options" mdbDropdown>
+        <button mdbDropdownToggle type="button" mdbBtn color="primary" mdbWavesEffect>
+            Feedback Options
+        </button>
+        
+        <div class="dropdown-menu dropdown-primary">
+            <a class="dropdown-item" href="#">Incorrect Data</a>
+            <a class="dropdown-item" href="#">Problem 2</a>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Submit</button>
+  </div>

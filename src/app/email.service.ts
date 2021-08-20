@@ -1,28 +1,24 @@
 import { Injectable, NgModule } from '@angular/core';
-import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { throwError } from 'rxjs';
-
-
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class EmailService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http:  Http) { }
-
-  sendEmail(argparam: { from: string; to: any; name: any; text: any; }) {
-    return this.http.post('/email', argparam)
-    .map(res => res.json())
-    .catch(this._errorHandler);
+  sendEmail(argparam: { replyto: string; name: string; message: string}) {
+    return this.http
+      .post("https://formspree.io/f/xbjqpzee", argparam)
+      .pipe(catchError(this._errorHandler));
   }
-  private _errorHandler(error: Response) {
+
+  private _errorHandler(error: HttpErrorResponse) {
     console.error(error);
-    return Observable.throw(error || 'Server Error')
+    return throwError(error || 'Server Error');
   }
-  
 }

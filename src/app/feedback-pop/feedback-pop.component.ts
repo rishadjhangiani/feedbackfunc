@@ -32,10 +32,9 @@ export class FeedbackPopComponent implements OnInit {
 
   onSubmit(){
     this._emailService.sendEmail({
-      from: 'Mailgun Sandbox <postmaster@sandboxyourapikeysetXXXXXX.mailgun.org>',
-      to: 'rishadjhangiani@gmail.com',
+      replyto: 'rishadjhangiani@gmail.com',
       name: 'Risha',
-      text: 'test',
+      message: 'test',
     })
     .subscribe(
       () => {},

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,17 +19,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FeedbackPopComponent } from './feedback-pop/feedback-pop.component';
 
 import { EmailService } from './email.service';
-import { HttpModule } from '@angular/http';
-
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FeedbackPopComponent
-  ],
+  declarations: [AppComponent, FeedbackPopComponent],
   imports: [
-    HttpModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -45,6 +40,6 @@ import { HttpModule } from '@angular/http';
     ReactiveFormsModule,
   ],
   providers: [EmailService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

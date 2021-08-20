@@ -18,12 +18,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FeedbackPopComponent } from './feedback-pop/feedback-pop.component';
 
+import { EmailService } from './email.service';
+import { HttpModule } from '@angular/http';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     FeedbackPopComponent
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -36,9 +42,9 @@ import { FeedbackPopComponent } from './feedback-pop/feedback-pop.component';
     MatSidenavModule,
     SidebarModule.forRoot(),
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [EmailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

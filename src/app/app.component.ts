@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { FeedbackServiceService } from './feedback-service.service';
+import * as email from 'nativescript-email';
+
 
 
 @Component({
@@ -10,7 +12,8 @@ import { FeedbackServiceService } from './feedback-service.service';
 })
 
 
-export class AppComponent {
+export class AppComponent{
+
   public _opened: boolean = false;
   public _toggleSidebar(): void {
   this._opened = !this._opened;
@@ -29,8 +32,8 @@ export class AppComponent {
   }
 
   showFeedback() {
-    this.feedbackService.openFeedback().then(result => {
-      console.log(result);
+    this.feedbackService.openFeedback().then(data => {
+      console.log(data.option);
     },()=> {
 
     });

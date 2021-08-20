@@ -13,7 +13,7 @@ export class EmailService {
 
   sendEmail(argparam: { replyto: string; name: string; message: string}) {
     return this.http
-      .post("https://formspree.io/f/xbjqpzee", argparam)
+      .post("", argparam)
       .pipe(catchError(this._errorHandler));
   }
 

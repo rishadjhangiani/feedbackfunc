@@ -20,10 +20,17 @@ import { FeedbackPopComponent } from './feedback-pop/feedback-pop.component';
 
 import { EmailService } from './email.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NewpageComponent } from './newpage/newpage.component';
+import { HomeComponent } from './home/home.component';
+
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
+
 
 @NgModule({
-  declarations: [AppComponent, FeedbackPopComponent],
+  declarations: [AppComponent, FeedbackPopComponent, NewpageComponent, HomeComponent],
   imports: [
+    DragDropModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,

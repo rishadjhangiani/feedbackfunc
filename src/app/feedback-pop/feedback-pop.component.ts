@@ -5,6 +5,8 @@ import * as email from 'nativescript-email';
 import * as nodemailer from 'nodemailer';
 import { EmailService } from '../email.service';
 
+
+
 @Component({
   selector: 'app-feedback-pop',
   templateUrl: './feedback-pop.component.html',
@@ -27,6 +29,7 @@ export class FeedbackPopComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   //composeOptions: email.ComposeOptions;
 
 
@@ -34,7 +37,7 @@ export class FeedbackPopComponent implements OnInit {
     this._emailService.sendEmail({
       replyto: 'rishadjhangiani@gmail.com',
       name: 'Risha',
-      message: 'test',
+      message:  this.modalForm.value,
     })
     .subscribe(
       () => {},

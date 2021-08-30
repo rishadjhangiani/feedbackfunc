@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { FeedbackServiceService } from './feedback-service.service';
 import * as email from 'nativescript-email';
+import { Router } from '@angular/router';
 
 
 
@@ -28,7 +29,11 @@ export class AppComponent{
   /**
    * 
    */
-  constructor(private feedbackService: FeedbackServiceService) {
+  constructor(private feedbackService: FeedbackServiceService, private router: Router) {
+  }
+
+  btnClick() {
+    this.router.navigateByUrl('/user');
   }
 
   showFeedback() {

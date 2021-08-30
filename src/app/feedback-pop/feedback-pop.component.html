@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 
+<div cdkDrag>
+
 <div class="modal-header">
+  <mat-icon>drag_handle</mat-icon> 
+  <!--<svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+    <path d="M0 0h24v24H0z" fill="none"></path>
+  </svg> -->
   <h4 class="modal-title" id="modal-basic-title">Submit Feedback</h4>
   <button
     type="button"
@@ -15,33 +22,35 @@
 <div class="modal-body">
   <form [formGroup]="modalForm" (ngSubmit)="onSubmit()">
     <div class="options">
-      <label class="container" for="answer">Incorrect Data Points</label>
-      <input
-        formControlName="answer"
-        type="radio"
-        value="Incorrect Data Points"
-      />
-
-      <label class="container" for="answer">Not my company</label>
-      <input formControlName="answer" type="radio" value="Not my Company" />
+        <label class="container" for="answer"><input
+          formControlName="answer"
+          type="radio"
+          value="Incorrect Data Points"
+        />Incorrect Data Points</label>
+        
+      <label class="container" for="answer">
+        <input formControlName="answer" type="radio" value="Not my Company" />
+        Not my company</label>
+      
 
       <label class="container" for="answer"
-        >Incorrect Visualization of Data</label
-      >
-      <input
+        ><input
         formControlName="answer"
         type="radio"
         value="Incorrect Visualization of Data"
       />
+        Incorrect Visualization of Data</label
+      >
 
       <label class="container" for="answer"
-        >Widget Actions (export, resizing, etc.) Not Working</label
-      >
-      <input
+        ><input
         formControlName="answer"
         type="radio"
         value="Widget Actions (export, resizing, etc.) Not Working"
       />
+        Widget Actions (export, resizing, etc.) Not Working</label
+      >
+      
     </div>
     <div class="modal-footer">
       <button
@@ -53,4 +62,8 @@
       </button>
     </div>
   </form>
+
 </div>
+
+</div>
+

@@ -7,6 +7,7 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
+
 <style>
   :host {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -304,6 +305,7 @@
   }
 </style>
 
+
 <!-- Toolbar -->
 <mat-toolbar class="navbar" style="background-color: #125699;">
 
@@ -311,11 +313,13 @@
     
   <div>
     <button (click)="showFeedback()" style="background-color:transparent; border-color: transparent;"><img width="30px" style="margin-top: 10px; margin-right: 10px" src="assets/feedback icon.png"></button>
-    <span style="color: white; font-weight: normal">Dots</span>
+    <span  style="color: white; font-weight: normal"><a routerLink="/page">New</a></span>
+    <button type="button" class="btn btn-primary-outline pull-right" (click)="btnClick();" style="color: white; font-weight: normal"><i class="fa fa-plus"></i>Dots</button>
     <span style="color: white; font-weight: normal">Search</span>
     <span style="color: white; font-weight: normal">Bell</span>
     <span style="color: white; font-weight: normal">Profile</span>
   </div>
+ 
 </mat-toolbar>
 <ng-sidebar-container>
   <ng-sidebar [(opened)]="_opened">
@@ -339,6 +343,7 @@
 </ng-sidebar-container>
 
 
+
 <mat-card style="border:rgba(0, 0, 0, 0.24); height: 200px; width: 300px">
   <mat-card-header>
     <img style="height:20px; align: right" src="assets/menuicon.png">
@@ -351,6 +356,7 @@
 <mat-card style="border:rgba(0, 0, 0, 0.24); height: 100px; width: 300px">
 <mat-card-title>LINCOLN SQUARE FEED</mat-card-title>
 </mat-card>
+
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->

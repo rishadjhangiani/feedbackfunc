@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import * as email from 'nativescript-email';
 import * as nodemailer from 'nodemailer';
 import { EmailService } from '../email.service';
+import { FeedbackServiceService } from '../feedback-service.service';
 
 
 
@@ -24,7 +25,7 @@ export class FeedbackPopComponent implements OnInit {
     answer: ''
   })
 
-  constructor(public modal : NgbActiveModal, private formBuilder : FormBuilder, private _emailService: EmailService) {
+  constructor(public modal : NgbActiveModal, private formBuilder : FormBuilder, private _emailService: EmailService, private feedbackservice: FeedbackServiceService) {
     this.option1 = "";
     this.option2 = "";
     this.option3 = "";
@@ -37,10 +38,12 @@ export class FeedbackPopComponent implements OnInit {
   }
 
   newData(a: string, b: string, c: string, d: string) {
-    this.option1 = a;
-    this.option2 = b;
-    this.option3 = c;
-    this.option4 = d;
+    //this is the main thing like where we are assigning the options to values
+    let options = this.feedbackservice.data(this.option1, this.option2, this.option3, this.option4);
+    this.option1 = options[0];
+    this.option2 = options[1];
+    this.option3 = options[2];
+    this.option4 = options[3];
     console.log(this.option1);
     console.log(this.option2);
     console.log(this.option3);
@@ -48,7 +51,8 @@ export class FeedbackPopComponent implements OnInit {
     return this.option1, this.option2, this.option3, this.option4;
 }
 
-  ngOnInit(): void {
+  ngOnInit() {
+ 
   }
 
 

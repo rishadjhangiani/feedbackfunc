@@ -6,9 +6,9 @@ import { FeedbackPopComponent } from './feedback-pop/feedback-pop.component';
   providedIn: 'root'
 })
 
-@Component({
-  selector: 'FeedbackPopComponent',
-})
+//@Component({
+  //selector: 'FeedbackPopComponent',
+//})
 export class FeedbackServiceService {
 
   option1 : string;
@@ -26,11 +26,14 @@ export class FeedbackServiceService {
 
   openFeedback(a: string, b: string, c: string, d: string) : Promise<any>{
     var modalRef = this.ngbModal.open(FeedbackPopComponent, {size: 'md', backdrop: 'static'});
+    //abstract newData and add state
+    this.data(a, b, c, d);
     console.log(a, b, c, d);
     return modalRef.result;
   }
 
-  data(a: string, b: string, c: string, d: string) : void {
-    FeedbackPopComponent.newData(a, b, c, d);
+  data(a: string, b: string, c: string, d: string) {
+    console.log(a, b, c, d);
+    return [a, b, c, d];
   }
 }

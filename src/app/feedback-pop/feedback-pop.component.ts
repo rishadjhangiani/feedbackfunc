@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder } from '@angular/forms';
 import * as email from 'nativescript-email';
 import * as nodemailer from 'nodemailer';
 import { EmailService } from '../email.service';
+
 
 
 
@@ -13,18 +14,39 @@ import { EmailService } from '../email.service';
   styleUrls: ['./feedback-pop.component.css']
 })
 export class FeedbackPopComponent implements OnInit {
+  option1: string;
+  option2: string;
+  option3: string;
+  option4: string;
+  
 
   modalForm = this.formBuilder.group({
     answer: ''
   })
 
   constructor(public modal : NgbActiveModal, private formBuilder : FormBuilder, private _emailService: EmailService) {
+    this.option1 = "";
+    this.option2 = "";
+    this.option3 = "";
+    this.option4 = "";
     /*this.composeOptions= {
       subject: 'test email',
       body: 'test email',
       to: ['risha.j@optio3.com'],
     } */
   }
+
+  newData(a: string, b: string, c: string, d: string) {
+    this.option1 = a;
+    this.option2 = b;
+    this.option3 = c;
+    this.option4 = d;
+    console.log(this.option1);
+    console.log(this.option2);
+    console.log(this.option3);
+    console.log(this.option4);
+    return this.option1, this.option2, this.option3, this.option4;
+}
 
   ngOnInit(): void {
   }
@@ -43,6 +65,7 @@ export class FeedbackPopComponent implements OnInit {
       () => {},
       err => console.log(err)
     );
+
     /*let testAccount = await nodemailer.createTestAccount();
     let transporter = nodemailer.createTransport({
       host: "smtp.ethereal.email",
@@ -61,6 +84,7 @@ export class FeedbackPopComponent implements OnInit {
     }).catch(e => console.error(e)); */
     console.log(this.modalForm.value);
     }
+
 
 
 
@@ -83,3 +107,5 @@ export class FeedbackPopComponent implements OnInit {
   } */
 
 }
+
+

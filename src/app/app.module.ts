@@ -24,11 +24,13 @@ import { NewpageComponent } from './newpage/newpage.component';
 import { HomeComponent } from './home/home.component';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { OptionPipe } from './option.pipe';
+
 
 
 
 @NgModule({
-  declarations: [AppComponent, FeedbackPopComponent, NewpageComponent, HomeComponent],
+  declarations: [AppComponent, NewpageComponent, HomeComponent, OptionPipe, FeedbackPopComponent],
   imports: [
     DragDropModule,
     HttpClientModule,

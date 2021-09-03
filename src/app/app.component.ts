@@ -3,6 +3,8 @@ import { FormBuilder } from '@angular/forms';
 import { FeedbackServiceService } from './feedback-service.service';
 import * as email from 'nativescript-email';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FeedbackPopComponent } from './feedback-pop/feedback-pop.component';
 
 
 
@@ -21,7 +23,6 @@ export class AppComponent{
   }
 
 
-
   public _onBackdropClicked() : void {
     console.info('Backdrop clicked');
   }
@@ -29,19 +30,27 @@ export class AppComponent{
   /**
    * 
    */
-  constructor(private feedbackService: FeedbackServiceService, private router: Router) {
+  constructor(private feedbackService: FeedbackServiceService, private router: Router, private ngbModal : NgbModal) {
   }
 
   btnClick() {
     this.router.navigateByUrl('/user');
   }
 
-  showFeedback() {
-    this.feedbackService.openFeedback().then(data => {
+  showFeedback(a: string, b: string, c: string, d: string) {
+    this.openFeedback(a, b, c, d).then(data => {
       console.log(data.option);
     },()=> {
 
     });
+  }
+
+  openFeedback(a: string, b: string, c: string, d: string) : Promise<any>{
+    var modalRef = this.ngbModal.open(FeedbackPopComponent, {size: 'md', backdrop: 'static'});
+    this.feedbackService.data(a, b, c, d);
+    //feedback service should be the event emitter service
+    console.log(a, b, c, d);
+    return modalRef.result;
   }
   title = 'angular-animations-site';
 }

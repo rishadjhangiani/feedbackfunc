@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<div cdkDrag>
+<div cdkDrag cdkDragRootElement=".modal-content">
 
-<div class="modal-header">
+<div class="modal-header" cdkDragHandle>
   <mat-icon>drag_handle</mat-icon> 
   <!--<svg width="24px" fill="currentColor" viewBox="0 0 24 24">
     <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
-    <path d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M0 0h24v24H0z" fill="none"></path> 
   </svg> -->
   <h4 class="modal-title" id="modal-basic-title">Submit Feedback</h4>
   <button
@@ -26,7 +26,7 @@
           formControlName="answer"
           type="radio"
           value="Incorrect Data Points"
-        />Incorrect Data Points</label>
+        />{{option1}}</label>
         
       <label class="container" for="answer">
         <input formControlName="answer" type="radio" value="Not my Company" />

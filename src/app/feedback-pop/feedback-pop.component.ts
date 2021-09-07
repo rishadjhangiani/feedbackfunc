@@ -15,10 +15,13 @@ import { FeedbackServiceService } from '../feedback-service.service';
   styleUrls: ['./feedback-pop.component.css']
 })
 export class FeedbackPopComponent implements OnInit {
-  option1: string;
-  option2: string;
-  option3: string;
-  option4: string;
+
+  static option1 = '';
+  static option2 = '';
+  static option3 = '';
+  static option4 = '';
+
+  FeedbackPopComponent = FeedbackPopComponent;
   
 
   modalForm = this.formBuilder.group({
@@ -26,18 +29,21 @@ export class FeedbackPopComponent implements OnInit {
   })
 
   constructor(public modal : NgbActiveModal, private formBuilder : FormBuilder, private _emailService: EmailService, private feedbackservice: FeedbackServiceService) {
-    this.option1 = "";
-    this.option2 = "";
-    this.option3 = "";
-    this.option4 = "";
-    /*this.composeOptions= {
-      subject: 'test email',
-      body: 'test email',
-      to: ['risha.j@optio3.com'],
-    } */
+
   }
 
-  newData(a: string, b: string, c: string, d: string) {
+  static data(a: string, b: string, c: string, d: string) {
+    console.log(a, b, c, d);  
+    this.option1 = a;
+    this.option2 = b;
+    this.option3 = c;
+    this.option4 = d;
+  }
+
+ 
+
+/*
+  newData() {
     //this is the main thing like where we are assigning the options to values
     let options = this.feedbackservice.data(this.option1, this.option2, this.option3, this.option4);
     this.option1 = options[0];
@@ -49,7 +55,7 @@ export class FeedbackPopComponent implements OnInit {
     console.log(this.option3);
     console.log(this.option4);
     return this.option1, this.option2, this.option3, this.option4;
-}
+}*/
 
   ngOnInit() {
  
@@ -68,7 +74,7 @@ export class FeedbackPopComponent implements OnInit {
     .subscribe(
       () => {},
       err => console.log(err)
-    );
+    ); 
 
     /*let testAccount = await nodemailer.createTestAccount();
     let transporter = nodemailer.createTransport({

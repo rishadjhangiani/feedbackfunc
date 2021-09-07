@@ -5,6 +5,7 @@ import * as email from 'nativescript-email';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FeedbackPopComponent } from './feedback-pop/feedback-pop.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 
@@ -37,13 +38,7 @@ export class AppComponent{
     this.router.navigateByUrl('/user');
   }
 
-  showFeedback(a: string, b: string, c: string, d: string) {
-    this.feedbackService.openFeedback(a, b, c, d).then(data => {
-      console.log(data.option);
-    },()=> {
-
-    });
-  }
+ 
 
   /*openFeedback(a: string, b: string, c: string, d: string) : Promise<any>{
     var modalRef = this.ngbModal.open(FeedbackPopComponent, {size: 'md', backdrop: 'static'});

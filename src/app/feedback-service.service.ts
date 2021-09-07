@@ -27,13 +27,10 @@ export class FeedbackServiceService {
   openFeedback(a: string, b: string, c: string, d: string) : Promise<any>{
     var modalRef = this.ngbModal.open(FeedbackPopComponent, {size: 'md', backdrop: 'static'});
     //abstract newData and add state
-    this.data(a, b, c, d);
+    FeedbackPopComponent.data(a, b, c, d);
     console.log(a, b, c, d);
     return modalRef.result;
   }
 
-  data(a: string, b: string, c: string, d: string) {
-    console.log(a, b, c, d);
-    return [a, b, c, d];
-  }
+
 }

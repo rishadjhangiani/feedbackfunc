@@ -25,12 +25,13 @@ import { HomeComponent } from './home/home.component';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { OptionPipe } from './option.pipe';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, NewpageComponent, HomeComponent, OptionPipe, FeedbackPopComponent],
+  declarations: [AppComponent, NewpageComponent, HomeComponent, OptionPipe, FeedbackPopComponent, FeedbackComponent],
   imports: [
     DragDropModule,
     HttpClientModule,
